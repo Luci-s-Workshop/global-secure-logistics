@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { Shield, Target, Users, Globe, Award, Clock, CheckCircle, TrendingUp } from 'lucide-react';
 
 const AboutUs = () => {
@@ -316,6 +317,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

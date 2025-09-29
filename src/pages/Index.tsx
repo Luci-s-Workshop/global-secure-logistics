@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import ServicesGrid from '@/components/ServicesGrid';
 import TrackingSystem from '@/components/TrackingSystem';
 import CostCalculator from '@/components/CostCalculator';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <ServicesGrid />
       <TrackingSystem />
       <CostCalculator />
+      <Footer />
     </div>
   );
 };

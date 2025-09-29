@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X, Truck, Shield, Globe } from 'lucide-react';
+import { ChevronDown, Menu, X, Truck, Shield, Globe, Search, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
@@ -38,23 +38,28 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-3 group"
+            className="flex items-center space-x-2 group"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-              <Shield className="w-6 h-6 text-primary-foreground" />
+            <div className="p-2 bg-primary rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <Package className="w-6 h-6 text-white" />
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-gradient">JDsecurity</h1>
-              <p className="text-xs text-muted-foreground">Shipping Company</p>
-            </div>
+            <span className={`text-2xl font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}>
+              JDsecurity
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link to="/" className="nav-link">
+            <Link to="/" className={`nav-link transition-colors duration-300 ${
+              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+            }`}>
               Home
             </Link>
-            <Link to="/about-us" className="nav-link">
+            <Link to="/about-us" className={`nav-link transition-colors duration-300 ${
+              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+            }`}>
               About Us
             </Link>
             
@@ -64,13 +69,15 @@ const Navigation = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="nav-link flex items-center">
-                Services
-                <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+              <button className={`nav-link flex items-center space-x-1 transition-colors duration-300 ${
+                isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+              }`}>
+                <span>Services</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-xl py-2 animate-fade-in">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-md rounded-lg shadow-xl border border-border py-2 animate-fade-in">
                   <Link
                     to="/services"
                     className="block px-4 py-3 text-sm hover:bg-muted rounded-lg mx-2 transition-colors duration-200"
@@ -85,10 +92,10 @@ const Navigation = () => {
                       <Link
                         key={service.name}
                         to={service.href}
-                        className="flex items-center px-4 py-3 text-sm hover:bg-muted rounded-lg mx-2 transition-colors duration-200"
+                        className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
                       >
-                        <Icon className="w-4 h-4 mr-3 text-primary" />
-                        {service.name}
+                        <Icon className="w-5 h-5" />
+                        <span>{service.name}</span>
                       </Link>
                     );
                   })}
@@ -96,87 +103,94 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link to="/contact-us" className="nav-link">
+            <Link to="/contact-us" className={`nav-link transition-colors duration-300 ${
+              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+            }`}>
               Contact Us
             </Link>
-            <Link to="/cost-calculator" className="nav-link">
+            <Link to="/cost-calculator" className={`nav-link transition-colors duration-300 ${
+              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+            }`}>
               Cost Calculator
             </Link>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button className="btn-hero">
+          {/* Action Buttons */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <Button 
+              variant="outline" 
+              className={`track-button group border-2 px-6 py-2 font-semibold transition-all duration-300 ${
+                isScrolled 
+                  ? 'border-primary text-primary hover:bg-primary hover:text-white' 
+                  : 'border-accent text-accent hover:bg-accent hover:text-white'
+              }`}
+            >
+              <Search className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+              Track Your Order
+            </Button>
+            <Button className="btn-hero px-6 py-2 font-semibold">
               Get Quote
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
+          <button
+            className={`lg:hidden p-2 transition-colors duration-300 ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </Button>
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-border animate-fade-in">
-            <div className="space-y-2">
-              <Link
-                to="/"
-                className="block px-4 py-2 text-sm hover:bg-muted rounded-lg transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+          <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border animate-slide-down">
+            <nav className="py-4 space-y-2">
+              <Link to="/" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </Link>
-              <Link
-                to="/about-us"
-                className="block px-4 py-2 text-sm hover:bg-muted rounded-lg transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/about-us" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 About Us
               </Link>
-              <Link
-                to="/services"
-                className="block px-4 py-2 text-sm hover:bg-muted rounded-lg transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              {services.map((service) => (
-                <Link
-                  key={service.name}
-                  to={service.href}
-                  className="block px-8 py-2 text-sm text-muted-foreground hover:bg-muted rounded-lg transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {service.name}
-                </Link>
-              ))}
-              <Link
-                to="/contact-us"
-                className="block px-4 py-2 text-sm hover:bg-muted rounded-lg transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              
+              {/* Mobile Services */}
+              <div className="px-4 py-2">
+                <span className="block text-sm font-semibold text-muted-foreground mb-2">Services</span>
+                {services.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <Link
+                      key={service.name}
+                      to={service.href}
+                      className="flex items-center space-x-3 px-2 py-2 text-foreground hover:bg-primary/10 hover:text-primary transition-colors rounded-md"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="text-sm">{service.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+              
+              <Link to="/contact-us" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact Us
               </Link>
-              <Link
-                to="/cost-calculator"
-                className="block px-4 py-2 text-sm hover:bg-muted rounded-lg transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/cost-calculator" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Cost Calculator
               </Link>
-              <div className="px-4 pt-4">
-                <Button className="btn-hero w-full">
-                  Get Quote
+              
+              {/* Mobile Action Buttons */}
+              <div className="px-4 py-4 space-y-3 border-t border-border">
+                <Button variant="outline" className="w-full track-button">
+                  <Search className="mr-2 w-4 h-4" />
+                  Track Your Order
                 </Button>
+                <Button className="w-full btn-hero">Get Quote</Button>
               </div>
-            </div>
+            </nav>
           </div>
         )}
       </nav>

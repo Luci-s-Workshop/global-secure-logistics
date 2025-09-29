@@ -169,6 +169,11 @@
     @apply scale-x-100 origin-left;
   }
   
+  /* Track Button Styles */
+  .track-button {
+    @apply border-2 px-6 py-2 font-semibold transition-all duration-300 hover:scale-105;
+  }
+  
   /* Parallax Sections */
   .parallax-section {
     @apply relative overflow-hidden;

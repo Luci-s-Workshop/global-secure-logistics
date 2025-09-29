@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plane, Ship, Truck, Globe, Shield, Package, Clock, CheckCircle } from 'lucide-react';
 
@@ -256,6 +257,7 @@ const Services = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
