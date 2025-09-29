@@ -148,7 +148,7 @@
   
   /* Service Card Styles */
   .service-card {
-    @apply bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer;
+    @apply bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer;
     background: var(--gradient-card);
   }
   
