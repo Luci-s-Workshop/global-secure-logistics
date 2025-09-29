@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* JDsecurity Shipping Company Design System - Modern Logistics Authority */
 
 @layer base {
   :root {
+    /* Core Brand Colors - Deep Ocean Blues for Trust & Authority */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 221 39% 11%;
+    
+    /* Navy Blue Primary - Represents Ocean Freight & Trust */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    --primary-dark: 221 100% 25%;
+    --primary-light: 221 83% 65%;
+    
+    /* Ocean Teal Secondary - Dynamic & Modern */
+    --secondary: 187 85% 45%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-dark: 187 85% 35%;
+    --secondary-light: 187 85% 55%;
+    
+    /* Gold Accent - Premium & Excellence */
+    --accent: 43 96% 56%;
+    --accent-foreground: 221 39% 11%;
+    --accent-dark: 43 96% 46%;
+    
+    /* Card & Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    --card-foreground: 221 39% 11%;
+    --card-secondary: 221 83% 53% / 0.05;
+    
+    /* Ocean Gradients for Hero Sections */
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(187 85% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(221 100% 25%) 0%, hsl(221 83% 53%) 50%, hsl(187 85% 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(221 83% 53% / 0.02));
+    --gradient-text: linear-gradient(135deg, hsl(221 83% 53%), hsl(187 85% 45%));
+    
+    /* Professional Neutrals */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --warning: 43 96% 56%;
+    --warning-foreground: 221 39% 11%;
+    
+    /* Interactive Elements */
+    --hover-lift: 0 20px 40px hsl(221 83% 53% / 0.15);
+    --shadow-soft: 0 4px 20px hsl(221 83% 53% / 0.08);
+    --shadow-strong: 0 10px 40px hsl(221 83% 53% / 0.2);
+    --shadow-glow: 0 0 30px hsl(221 83% 53% / 0.3);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --animation-duration: 0.8s;
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +128,96 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  .btn-outline-hero {
+    @apply border-2 border-primary text-primary bg-transparent px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg;
+  }
+  
+  /* Service Card Styles */
+  .service-card {
+    @apply bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer;
+    background: var(--gradient-card);
+  }
+  
+  .service-card:hover {
+    box-shadow: var(--hover-lift);
+  }
+  
+  /* Interactive Navigation */
+  .nav-link {
+    @apply relative text-foreground hover:text-primary transition-all duration-300 font-medium;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute w-full h-0.5 bg-gradient-to-r from-primary to-secondary bottom-0 left-0 scale-x-0 origin-right transition-transform duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+  
+  /* Parallax Sections */
+  .parallax-section {
+    @apply relative overflow-hidden;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Enhanced Shadows */
+  .shadow-hero {
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Animation Classes */
+  .animate-slide-up {
+    @apply animate-fade-in;
+    animation-delay: 0.2s;
+  }
+  
+  .animate-slide-up-delayed {
+    @apply animate-fade-in;
+    animation-delay: 0.4s;
+  }
+  
+  .animate-slide-up-more-delayed {
+    @apply animate-fade-in;
+    animation-delay: 0.6s;
+  }
+  
+  /* Tracking Steps */
+  .tracking-step {
+    @apply relative pl-8 pb-8 border-l-2 border-border last:border-l-0 last:pb-0;
+  }
+  
+  .tracking-step::before {
+    @apply content-[''] absolute w-4 h-4 bg-primary rounded-full -left-2 top-2 shadow-glow;
+  }
+  
+  .tracking-step.active::before {
+    @apply bg-accent shadow-xl;
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.5);
   }
 }
