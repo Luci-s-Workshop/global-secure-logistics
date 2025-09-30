@@ -2,82 +2,75 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Shield, Target, Users, Globe, Award, Clock, CheckCircle, TrendingUp } from 'lucide-react';
-
 const AboutUs = () => {
-  const timeline = [
-    {
-      year: '1984',
-      title: 'Foundation',
-      description: 'JDsecurity Shipping Company was established with a vision to revolutionize the logistics industry in India. Starting with a small team and limited resources, we focused on providing reliable air freight services with an emphasis on cargo security that was unprecedented at the time.'
-    },
-    {
-      year: '1990s',
-      title: 'Expansion Era',
-      description: 'Expanded operations to cover sea freight and land transport. Established our first international partnerships and opened regional offices across India. Introduced computerized tracking systems, becoming one of the first logistics companies in India to offer digital tracking capabilities.'
-    },
-    {
-      year: '2000s',
-      title: 'Technology Integration',
-      description: 'Launched our online platform and mobile applications. Implemented RFID tracking and GPS monitoring across our fleet. Achieved ISO certifications for quality management and began offering specialized services for high-value and sensitive cargo.'
-    },
-    {
-      year: '2010s',
-      title: 'Global Leadership',
-      description: 'Ranked among the top freight forwarders in India. Expanded international network to cover 200+ destinations. Introduced blockchain technology for shipment tracking and implemented AI-powered logistics optimization systems.'
-    },
-    {
-      year: '2020s',
-      title: 'Innovation & Security',
-      description: 'Launched JDsecurity\'s advanced security protocols including biometric verification and armed transport services. Introduced contactless delivery options and enhanced safety measures. Continued expansion with focus on sustainable logistics solutions and carbon-neutral shipping options.'
-    }
-  ];
-
-  const values = [
-    {
-      icon: Shield,
-      title: 'Security First',
-      description: 'At JDsecurity, the safety and security of your cargo is our paramount concern. Every decision we make, every process we implement, and every technology we adopt is evaluated through the lens of security.'
-    },
-    {
-      icon: Target,
-      title: 'Reliability & Trust',
-      description: 'We understand that our clients depend on us for their critical shipments. That\'s why reliability isn\'t just a goal – it\'s a guarantee. With on-time delivery rates exceeding 98%, comprehensive insurance coverage, and transparent communication.'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Innovation & Technology',
-      description: 'In a rapidly evolving global marketplace, standing still means falling behind. JDsecurity continuously invests in cutting-edge technology and innovative solutions to enhance our service offerings.'
-    },
-    {
-      icon: Users,
-      title: 'Customer Excellence',
-      description: 'Our success is measured by our clients\' success. We maintain a customer-centric approach in everything we do, offering personalized solutions, 24/7 support, and proactive communication.'
-    },
-    {
-      icon: Globe,
-      title: 'Global Reach, Local Expertise',
-      description: 'While we operate on a global scale, we understand the importance of local knowledge and relationships. JDsecurity combines worldwide connectivity with deep local expertise in every market we serve.'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Sustainability & Responsibility',
-      description: 'We recognize our responsibility to future generations and are committed to sustainable business practices. JDsecurity actively works to reduce our carbon footprint through route optimization and fleet modernization.'
-    }
-  ];
-
-  const stats = [
-    { icon: Users, value: '5,000+', label: 'Employees Worldwide' },
-    { icon: Shield, value: '200+', label: 'Certified Security Professionals' },
-    { icon: TrendingUp, value: '50+', label: 'Technology Specialists' },
-    { icon: Clock, value: '24/7', label: 'Customer Support Teams' }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const timeline = [{
+    year: '1984',
+    title: 'Foundation',
+    description: 'JDsecurity Shipping Company was established with a vision to revolutionize the logistics industry in India. Starting with a small team and limited resources, we focused on providing reliable air freight services with an emphasis on cargo security that was unprecedented at the time.'
+  }, {
+    year: '1990s',
+    title: 'Expansion Era',
+    description: 'Expanded operations to cover sea freight and land transport. Established our first international partnerships and opened regional offices across India. Introduced computerized tracking systems, becoming one of the first logistics companies in India to offer digital tracking capabilities.'
+  }, {
+    year: '2000s',
+    title: 'Technology Integration',
+    description: 'Launched our online platform and mobile applications. Implemented RFID tracking and GPS monitoring across our fleet. Achieved ISO certifications for quality management and began offering specialized services for high-value and sensitive cargo.'
+  }, {
+    year: '2010s',
+    title: 'Global Leadership',
+    description: 'Ranked among the top freight forwarders in India. Expanded international network to cover 200+ destinations. Introduced blockchain technology for shipment tracking and implemented AI-powered logistics optimization systems.'
+  }, {
+    year: '2020s',
+    title: 'Innovation & Security',
+    description: 'Launched JDsecurity\'s advanced security protocols including biometric verification and armed transport services. Introduced contactless delivery options and enhanced safety measures. Continued expansion with focus on sustainable logistics solutions and carbon-neutral shipping options.'
+  }];
+  const values = [{
+    icon: Shield,
+    title: 'Security First',
+    description: 'At JDsecurity, the safety and security of your cargo is our paramount concern. Every decision we make, every process we implement, and every technology we adopt is evaluated through the lens of security.'
+  }, {
+    icon: Target,
+    title: 'Reliability & Trust',
+    description: 'We understand that our clients depend on us for their critical shipments. That\'s why reliability isn\'t just a goal – it\'s a guarantee. With on-time delivery rates exceeding 98%, comprehensive insurance coverage, and transparent communication.'
+  }, {
+    icon: TrendingUp,
+    title: 'Innovation & Technology',
+    description: 'In a rapidly evolving global marketplace, standing still means falling behind. JDsecurity continuously invests in cutting-edge technology and innovative solutions to enhance our service offerings.'
+  }, {
+    icon: Users,
+    title: 'Customer Excellence',
+    description: 'Our success is measured by our clients\' success. We maintain a customer-centric approach in everything we do, offering personalized solutions, 24/7 support, and proactive communication.'
+  }, {
+    icon: Globe,
+    title: 'Global Reach, Local Expertise',
+    description: 'While we operate on a global scale, we understand the importance of local knowledge and relationships. JDsecurity combines worldwide connectivity with deep local expertise in every market we serve.'
+  }, {
+    icon: CheckCircle,
+    title: 'Sustainability & Responsibility',
+    description: 'We recognize our responsibility to future generations and are committed to sustainable business practices. JDsecurity actively works to reduce our carbon footprint through route optimization and fleet modernization.'
+  }];
+  const stats = [{
+    icon: Users,
+    value: '5,000+',
+    label: 'Employees Worldwide'
+  }, {
+    icon: Shield,
+    value: '200+',
+    label: 'Certified Security Professionals'
+  }, {
+    icon: TrendingUp,
+    value: '50+',
+    label: 'Technology Specialists'
+  }, {
+    icon: Clock,
+    value: '24/7',
+    label: 'Customer Support Teams'
+  }];
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Page Header */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-secondary/10 bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold text-gradient mb-6 animate-fade-in">
@@ -107,18 +100,13 @@ const AboutUs = () => {
               
               <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
                 {stats.map((stat, index) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="bg-card border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 group"
-                    >
+                const Icon = stat.icon;
+                return <div key={index} className="bg-card border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 group">
                       <Icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                       <div className="text-2xl font-bold text-gradient mb-1">{stat.value}</div>
                       <div className="text-sm text-muted-foreground">{stat.label}</div>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
             </div>
           </div>
@@ -143,7 +131,9 @@ const AboutUs = () => {
                 </p>
               </div>
 
-              <div className="bg-card border border-border rounded-2xl p-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-card border border-border rounded-2xl p-8 animate-slide-up" style={{
+              animationDelay: '0.2s'
+            }}>
                 <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center mb-6">
                   <Globe className="w-6 h-6 text-white" />
                 </div>
@@ -174,21 +164,17 @@ const AboutUs = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+            const Icon = value.icon;
+            return <div key={index} className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group animate-scale-in" style={{
+              animationDelay: `${index * 0.1}s`
+            }}>
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-3">{value.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-                </div>
-              );
-            })}
+                </div>;
+          })}
           </div>
         </div>
       </section>
@@ -210,12 +196,9 @@ const AboutUs = () => {
               {/* Timeline Line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary"></div>
 
-              {timeline.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative flex items-start mb-12 animate-slide-in-left"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
+              {timeline.map((item, index) => <div key={index} className="relative flex items-start mb-12 animate-slide-in-left" style={{
+              animationDelay: `${index * 0.2}s`
+            }}>
                   {/* Timeline Dot */}
                   <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-primary to-secondary rounded-full border-4 border-background shadow-lg"></div>
                   
@@ -227,8 +210,7 @@ const AboutUs = () => {
                     </div>
                     <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -318,8 +300,6 @@ const AboutUs = () => {
         </div>
       </section>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default AboutUs;
