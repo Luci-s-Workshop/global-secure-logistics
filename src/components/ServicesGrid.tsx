@@ -1,36 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plane, Ship, Truck, Globe } from 'lucide-react';
+import airFreightImage from '@/assets/air-freight-service.jpg';
+import customsImage from '@/assets/customs-clearance.jpg';
+import warehouseImage from '@/assets/warehouse-logistics.jpg';
+import roadFreightImage from '@/assets/road-freight.jpg';
 
 const ServicesGrid = () => {
   const services = [
     {
       title: 'Air Freight Solutions',
-      description: 'We offer a highly flexible airport-to-airport or a door to door service on domestic as well as international routes that match your needs and schedules. Our air freight solutions are designed with security as the paramount concern, ensuring your cargo reaches its destination safely and on time.',
+      description: 'Flexible airport-to-airport or door-to-door service with security as paramount concern.',
       icon: Plane,
       href: '/services/shipping',
       gradient: 'from-blue-500 to-purple-600',
+      image: airFreightImage,
     },
     {
       title: 'Customs Clearance Excellence',
-      description: 'We can offer you full-fledged customs clearance at more than 60+ locations across India at important port locations, CFS and warehouses. JDsecurity\'s customs team ensures smooth, compliant, and secure processing of all your international shipments.',
+      description: 'Full-fledged customs clearance at 60+ locations with smooth, compliant processing.',
       icon: Globe,
       href: '/services',
       gradient: 'from-teal-500 to-blue-600',
+      image: customsImage,
     },
     {
       title: 'Project Cargo Specialists',
-      description: 'Project Cargo is a complex task and we at JDSECURITY SHIPPING COMPANY are aware of the challenges that come with it. Our specialized team handles oversized, heavy-lift, and high-value project cargo with precision and security protocols tailored to your specific requirements.',
+      description: 'Specialized handling of oversized, heavy-lift, and high-value project cargo.',
       icon: Ship,
       href: '/services/logistics',
       gradient: 'from-green-500 to-teal-600',
+      image: warehouseImage,
     },
     {
       title: 'Land Transport Network',
-      description: 'Transmax is the world\'s driving worldwide coordinations supplier - we uphold industry and exchange the worldwide trade of merchandise through land transport. JDsecurity leverages this network to provide secure, reliable ground transportation solutions.',
+      description: 'Secure, reliable ground transportation solutions through extensive network.',
       icon: Truck,
       href: '/services/shipping',
       gradient: 'from-orange-500 to-red-600',
+      image: roadFreightImage,
     },
   ];
 
@@ -46,43 +54,49 @@ const ServicesGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="service-card group"
+                className="service-card group relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Icon Header */}
-                <div className="flex items-center mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </h3>
+                {/* Service Image */}
+                <div className="relative h-48 mb-4 overflow-hidden rounded-t-2xl">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-lg bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}>
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                {/* Content */}
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-3">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
 
-                {/* CTA Link */}
-                <Link
-                  to={service.href}
-                  className="inline-flex items-center text-primary hover:text-secondary font-semibold group-hover:translate-x-2 transition-all duration-300"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
+                  <Link
+                    to={service.href}
+                    className="inline-flex items-center text-primary hover:text-secondary font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
 
                 {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
             );
           })}

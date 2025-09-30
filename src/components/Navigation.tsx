@@ -117,17 +117,6 @@ const Navigation = () => {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              className={`track-button group border-2 px-6 py-2 font-semibold transition-all duration-300 ${
-                isScrolled 
-                  ? 'border-primary text-primary hover:bg-primary hover:text-white' 
-                  : 'border-accent text-accent hover:bg-accent hover:text-white'
-              }`}
-            >
-              <Search className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-              Track Your Order
-            </Button>
             <Button className="btn-hero px-6 py-2 font-semibold">
               Get Quote
             </Button>
@@ -183,11 +172,7 @@ const Navigation = () => {
               </Link>
               
               {/* Mobile Action Buttons */}
-              <div className="px-4 py-4 space-y-3 border-t border-border">
-                <Button variant="outline" className="w-full track-button">
-                  <Search className="mr-2 w-4 h-4" />
-                  Track Your Order
-                </Button>
+              <div className="px-4 py-4 border-t border-border">
                 <Button className="w-full btn-hero">Get Quote</Button>
               </div>
             </nav>

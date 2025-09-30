@@ -62,39 +62,39 @@ const CostCalculator = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
+    <section className="py-20 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gradient mb-6 animate-fade-in">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 animate-fade-in">
             Instant Freight Cost Calculator
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto animate-slide-up">
             Get an instant estimate for your shipping needs with our advanced cost calculator
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
           {/* Calculator Form */}
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-lg animate-slide-in-left">
+          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-lg animate-slide-in-left">
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mr-4">
                 <Calculator className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold">Calculate Shipping Cost</h3>
+              <h3 className="text-2xl font-bold text-white">Calculate Shipping Cost</h3>
             </div>
 
             <form onSubmit={calculateCost} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="origin" className="text-sm font-medium mb-2 block">
+                  <Label htmlFor="origin" className="text-sm font-medium mb-2 block text-slate-300">
                     Origin Location
                   </Label>
                   <div className="relative">
-                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
                     <Input
                       id="origin"
                       placeholder="Enter pickup city/country"
-                      className="pl-10"
+                      className="pl-10 bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
                       value={formData.origin}
                       onChange={(e) => handleInputChange('origin', e.target.value)}
                       required
@@ -103,15 +103,15 @@ const CostCalculator = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="destination" className="text-sm font-medium mb-2 block">
+                  <Label htmlFor="destination" className="text-sm font-medium mb-2 block text-slate-300">
                     Destination Location
                   </Label>
                   <div className="relative">
-                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
                     <Input
                       id="destination"
                       placeholder="Enter delivery city/country"
-                      className="pl-10"
+                      className="pl-10 bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
                       value={formData.destination}
                       onChange={(e) => handleInputChange('destination', e.target.value)}
                       required

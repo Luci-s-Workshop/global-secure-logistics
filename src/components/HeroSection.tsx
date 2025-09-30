@@ -118,17 +118,17 @@ const HeroSection = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                       {/* Left Content */}
                       <div className="text-left">
-                        <div className="animate-fade-in">
-                          <div className="flex items-center mb-6">
-                            <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 mr-4 group-hover:scale-110 transition-transform duration-300">
+                        <div className="animate-hero-fade-in">
+                          <div className="flex items-center mb-6 animate-hero-slide-left">
+                            <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 mr-4 animate-hero-icon-float">
                               <Icon className="w-8 h-8 text-accent" />
                             </div>
-                            <span className="text-accent font-semibold text-lg tracking-wider uppercase">
+                            <span className="text-accent font-semibold text-lg tracking-wider uppercase animate-hero-typewriter">
                               {slide.subtitle}
                             </span>
                           </div>
                           
-                          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-hero-slide-up">
                             {slide.title.split(' ').map((word, index) => (
                               <span key={index} className={index >= 2 ? "text-gradient bg-gradient-to-r from-accent to-secondary-light bg-clip-text text-transparent" : ""}>
                                 {word}{' '}
@@ -136,23 +136,16 @@ const HeroSection = () => {
                             ))}
                           </h1>
                           
-                          <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl">
+                          <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl animate-hero-slide-up-delayed">
                             {slide.description}
                           </p>
                         </div>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-slide-up-delayed">
-                          <Button className="btn-hero group text-lg px-8 py-4">
+                        {/* CTA Button */}
+                        <div className="mb-8 animate-hero-slide-up-more-delayed">
+                          <Button className="btn-hero group text-lg px-8 h-16 flex items-center">
                             {slide.cta}
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                          </Button>
-                          <Button
-                            variant="outline"
-                            className="btn-outline-hero group text-lg px-8 py-4 border-2 border-white/30 text-white hover:bg-white hover:text-primary"
-                          >
-                            <Play className="mr-2 w-5 h-5" />
-                            {slide.ctaSecondary}
                           </Button>
                         </div>
                       </div>
