@@ -103,10 +103,10 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link to="/contact-us" className={`nav-link transition-colors duration-300 ${
+            <Link to="/contact" className={`nav-link transition-colors duration-300 ${
               isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
-              Contact Us
+              Contact
             </Link>
             <Link to="/cost-calculator" className={`nav-link transition-colors duration-300 ${
               isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
@@ -164,8 +164,8 @@ const Navigation = () => {
                 })}
               </div>
               
-              <Link to="/contact-us" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                Contact Us
+              <Link to="/contact" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                Contact
               </Link>
               <Link to="/cost-calculator" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Cost Calculator
