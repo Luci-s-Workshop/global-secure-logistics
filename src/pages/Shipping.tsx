@@ -6,92 +6,44 @@ import { Link } from 'react-router-dom';
 import { Ship, Plane, Truck, Package, Clock, Shield, Globe, CheckCircle, ArrowRight, Anchor, PackageCheck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-
 const Shipping = () => {
-  const shippingModes = [
-    {
-      title: 'Air Freight',
-      description: 'Fast and reliable air cargo services for time-sensitive shipments worldwide.',
-      icon: Plane,
-      features: [
-        'Express delivery within 24-48 hours',
-        'Real-time tracking and monitoring',
-        'Temperature-controlled options',
-        'Door-to-door service available'
-      ],
-      image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=800'
-    },
-    {
-      title: 'Ocean Freight',
-      description: 'Cost-effective sea shipping for large volumes and heavy cargo.',
-      icon: Ship,
-      features: [
-        'Full Container Load (FCL) services',
-        'Less than Container Load (LCL) options',
-        'Roll-on/Roll-off (RoRo) cargo',
-        'Comprehensive cargo insurance'
-      ],
-      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800'
-    },
-    {
-      title: 'Ground Transportation',
-      description: 'Flexible land freight solutions for domestic and cross-border deliveries.',
-      icon: Truck,
-      features: [
-        'Full truckload (FTL) and partial loads',
-        'Last-mile delivery services',
-        'Refrigerated transport options',
-        'Scheduled and express services'
-      ],
-      image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800'
-    }
-  ];
-
-  const pricingPlans = [
-    {
-      name: 'Standard Shipping',
-      price: '$49',
-      duration: '5-7 business days',
-      features: [
-        'Basic tracking',
-        'Standard handling',
-        'Email notifications',
-        'Proof of delivery',
-        'Up to 50kg weight limit'
-      ]
-    },
-    {
-      name: 'Express Shipping',
-      price: '$99',
-      duration: '2-3 business days',
-      features: [
-        'Priority handling',
-        'Real-time GPS tracking',
-        'SMS & email alerts',
-        'Signature required',
-        'Up to 100kg weight limit',
-        'Insurance included'
-      ],
-      popular: true
-    },
-    {
-      name: 'Premium Shipping',
-      price: '$199',
-      duration: '24-48 hours',
-      features: [
-        'White glove service',
-        'Dedicated account manager',
-        'Live tracking dashboard',
-        'Multi-point notifications',
-        'Unlimited weight',
-        'Full insurance coverage',
-        'Climate control available'
-      ]
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background relative">
+  const shippingModes = [{
+    title: 'Air Freight',
+    description: 'Fast and reliable air cargo services for time-sensitive shipments worldwide.',
+    icon: Plane,
+    features: ['Express delivery within 24-48 hours', 'Real-time tracking and monitoring', 'Temperature-controlled options', 'Door-to-door service available'],
+    image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=800'
+  }, {
+    title: 'Ocean Freight',
+    description: 'Cost-effective sea shipping for large volumes and heavy cargo.',
+    icon: Ship,
+    features: ['Full Container Load (FCL) services', 'Less than Container Load (LCL) options', 'Roll-on/Roll-off (RoRo) cargo', 'Comprehensive cargo insurance'],
+    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800'
+  }, {
+    title: 'Ground Transportation',
+    description: 'Flexible land freight solutions for domestic and cross-border deliveries.',
+    icon: Truck,
+    features: ['Full truckload (FTL) and partial loads', 'Last-mile delivery services', 'Refrigerated transport options', 'Scheduled and express services'],
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800'
+  }];
+  const pricingPlans = [{
+    name: 'Standard Shipping',
+    price: '$49',
+    duration: '5-7 business days',
+    features: ['Basic tracking', 'Standard handling', 'Email notifications', 'Proof of delivery', 'Up to 50kg weight limit']
+  }, {
+    name: 'Express Shipping',
+    price: '$99',
+    duration: '2-3 business days',
+    features: ['Priority handling', 'Real-time GPS tracking', 'SMS & email alerts', 'Signature required', 'Up to 100kg weight limit', 'Insurance included'],
+    popular: true
+  }, {
+    name: 'Premium Shipping',
+    price: '$199',
+    duration: '24-48 hours',
+    features: ['White glove service', 'Dedicated account manager', 'Live tracking dashboard', 'Multi-point notifications', 'Unlimited weight', 'Full insurance coverage', 'Climate control available']
+  }];
+  return <div className="min-h-screen bg-background relative">
       <WorldMapBackground />
       <div className="relative z-10">
         <Navigation />
@@ -137,16 +89,11 @@ const Shipping = () => {
 
             <div className="space-y-12">
               {shippingModes.map((mode, index) => {
-                const Icon = mode.icon;
-                return (
-                  <Card key={index} className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-2">
+              const Icon = mode.icon;
+              return <Card key={index} className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-2">
                     <div className={`grid lg:grid-cols-2 gap-8 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                       <div className={`relative h-80 lg:h-auto ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                        <img 
-                          src={mode.image} 
-                          alt={mode.title}
-                          className="w-full h-full object-cover"
-                        />
+                        <img src={mode.image} alt={mode.title} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       </div>
                       <CardContent className="p-12 flex flex-col justify-center">
@@ -158,18 +105,15 @@ const Shipping = () => {
                         </div>
                         <p className="text-lg text-slate-600 mb-6">{mode.description}</p>
                         <ul className="space-y-3">
-                          {mode.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start">
+                          {mode.features.map((feature, idx) => <li key={idx} className="flex items-start">
                               <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                               <span className="text-slate-700">{feature}</span>
-                            </li>
-                          ))}
+                            </li>)}
                         </ul>
                       </CardContent>
                     </div>
-                  </Card>
-                );
-              })}
+                  </Card>;
+            })}
             </div>
           </div>
         </section>
@@ -187,18 +131,10 @@ const Shipping = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {pricingPlans.map((plan, index) => (
-                <Card 
-                  key={index} 
-                  className={`relative overflow-hidden hover:shadow-2xl transition-all duration-500 ${
-                    plan.popular ? 'border-4 border-primary scale-105' : 'border-2'
-                  }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute top-0 right-0 bg-gradient-to-r from-primary to-blue-600 text-white px-6 py-2 text-sm font-bold">
+              {pricingPlans.map((plan, index) => <Card key={index} className={`relative overflow-hidden hover:shadow-2xl transition-all duration-500 ${plan.popular ? 'border-4 border-primary scale-105' : 'border-2'}`}>
+                  {plan.popular && <div className="absolute top-0 right-0 bg-gradient-to-r from-primary to-blue-600 text-white px-6 py-2 text-sm font-bold">
                       MOST POPULAR
-                    </div>
-                  )}
+                    </div>}
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold mb-2 text-slate-900">{plan.name}</h3>
                     <div className="mb-4">
@@ -210,12 +146,10 @@ const Shipping = () => {
                       {plan.duration}
                     </p>
                     <ul className="space-y-3 mb-8">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
+                      {plan.features.map((feature, idx) => <li key={idx} className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                           <span className="text-slate-700">{feature}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                     <Link to="/cost-calculator" className="block">
                       <Button className={`w-full ${plan.popular ? 'btn-hero' : ''}`} size="lg">
@@ -223,8 +157,7 @@ const Shipping = () => {
                       </Button>
                     </Link>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -247,7 +180,7 @@ const Shipping = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-6 text-lg">
+                  <Button variant="outline" className="border-2 border-white px-8 py-6 text-lg bg-zinc-50 text-slate-800">
                     Contact Sales Team
                   </Button>
                 </Link>
@@ -258,8 +191,6 @@ const Shipping = () => {
 
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Shipping;
