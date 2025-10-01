@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Package, Mail, Phone, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { toast } from 'sonner';
+import logo from '@/assets/JDS-Logo.png';
 
 const Footer = () => {
   const [email, setEmail] = React.useState('');
@@ -86,10 +87,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="p-2 bg-accent rounded-lg">
-                <Package className="w-6 h-6 text-white" />
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src={logo} 
+                alt="JDsecurity Shipping Company" 
+                className="w-12 h-12 object-contain"
+              />
               <span className="text-2xl font-bold">JDsecurity</span>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
@@ -100,7 +103,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent" />
-                <span className="text-white/80">+1 (800) JD-SECURE</span>
+                <span className="text-white/80">(415) 555-0161</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-accent" />

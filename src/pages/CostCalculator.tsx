@@ -7,11 +7,14 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Slider } from '@/components/ui/slider';
-import { Phone, Calculator } from 'lucide-react';
+import { Phone, Calculator, Package, Truck, Globe, Building } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CostCalculator = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const [activeCalculator, setActiveCalculator] = useState('Shipping');
   const [formData, setFormData] = useState({
     height: '',
     width: '',
@@ -23,6 +26,13 @@ const CostCalculator = () => {
   });
   const [total, setTotal] = useState(0);
   const [isCalculating, setIsCalculating] = useState(false);
+
+  const calculatorTypes = [
+    { name: 'Shipping', icon: Globe },
+    { name: 'Courier delivery', icon: Truck },
+    { name: 'B2B exchange', icon: Building },
+    { name: 'Logistics', icon: Package }
+  ];
 
   const handleInputChange = (field: string, value: string | boolean | number[]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -57,6 +67,16 @@ const CostCalculator = () => {
           baseRate = 8;
       }
       
+      // Adjust base rate based on calculator type
+      const calculatorMultiplier = {
+        'Shipping': 1.0,
+        'Courier delivery': 1.2,
+        'B2B exchange': 0.9,
+        'Logistics': 1.1
+      }[activeCalculator] || 1.0;
+      
+      baseRate *= calculatorMultiplier;
+      
       // Calculate based on weight and volume
       const dimensionalWeight = volume * 250; // 250kg per cubic meter
       const chargeableWeight = Math.max(weight, dimensionalWeight);
@@ -79,6 +99,27 @@ const CostCalculator = () => {
         description: "Your shipping cost has been calculated based on the provided details.",
       });
     }, 1000);
+  };
+
+  const handleNext = () => {
+    if (total > 0) {
+      navigate('/send-quotation', {
+        state: {
+          quotationData: {
+            ...formData,
+            total,
+            calculatorType: activeCalculator,
+            distance: formData.distance[0]
+          }
+        }
+      });
+    } else {
+      toast({
+        title: "Please calculate cost first",
+        description: "You need to calculate the shipping cost before proceeding.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
@@ -106,7 +147,7 @@ const CostCalculator = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-32 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             
@@ -126,7 +167,7 @@ const CostCalculator = () => {
               <div className="lg:col-span-2">
                 <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
                   <h3 className="text-2xl font-bold text-slate-900 mb-8">
-                    Shipping Cost Calculator
+                    {activeCalculator} Cost Calculator
                   </h3>
 
                   <div className="space-y-6">
@@ -219,7 +260,7 @@ const CostCalculator = () => {
                         <SelectTrigger className="bg-slate-50 border-slate-200 focus:border-primary">
                           <SelectValue placeholder="Same Day" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white">
                           <SelectItem value="Same Day">Same Day</SelectItem>
                           <SelectItem value="Next Day">Next Day</SelectItem>
                           <SelectItem value="Standard">Standard (3-5 days)</SelectItem>
@@ -293,22 +334,28 @@ const CostCalculator = () => {
                   <h4 className="text-lg font-bold text-slate-900 mb-4">Calculators</h4>
                   
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 cursor-pointer group">
-                      <span className="text-slate-700 group-hover:text-primary transition-colors">Shipping</span>
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 cursor-pointer group">
-                      <span className="text-slate-700 group-hover:text-primary transition-colors">Courier delivery</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 cursor-pointer group">
-                      <span className="text-slate-700 group-hover:text-primary transition-colors">B2b exchange</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 cursor-pointer group">
-                      <span className="text-slate-700 group-hover:text-primary transition-colors">Logistics</span>
-                    </div>
+                    {calculatorTypes.map((calc) => {
+                      const Icon = calc.icon;
+                      return (
+                        <button
+                          key={calc.name}
+                          onClick={() => setActiveCalculator(calc.name)}
+                          className={`w-full flex items-center justify-between p-3 rounded-lg transition-all duration-200 ${
+                            activeCalculator === calc.name
+                              ? 'bg-primary text-white'
+                              : 'hover:bg-slate-50 text-slate-700'
+                          }`}
+                        >
+                          <div className="flex items-center">
+                            <Icon className="w-5 h-5 mr-3" />
+                            <span>{calc.name}</span>
+                          </div>
+                          {activeCalculator === calc.name && (
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -318,7 +365,11 @@ const CostCalculator = () => {
                     Total: ${total.toFixed(2)}
                   </Button>
                   
-                  <Button variant="outline" className="w-full border-2 border-slate-300 h-12">
+                  <Button 
+                    onClick={handleNext}
+                    variant="outline" 
+                    className="w-full border-2 border-slate-300 h-12 hover:bg-primary hover:text-white hover:border-primary"
+                  >
                     NEXT
                   </Button>
                 </div>
@@ -343,7 +394,7 @@ const CostCalculator = () => {
             
             <div className="flex items-center space-x-4">
               <Phone className="w-6 h-6 text-primary" />
-              <span className="text-2xl font-bold">1-888-452-1505</span>
+              <span className="text-2xl font-bold">(415) 555-0161</span>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plane, Ship, Truck, Globe, Shield, Package, Clock, CheckCircle } from 'lucide-react';
+import { ArrowRight, Plane, Ship, Truck, Globe, Shield, Package, Clock, CheckCircle, Phone } from 'lucide-react';
 
 const Services = () => {
   const serviceCategories = [
@@ -92,13 +92,24 @@ const Services = () => {
       <Navigation />
       
       {/* Page Header */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        {/* Parallax Background */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl lg:text-6xl font-bold text-gradient mb-6 animate-fade-in">
+            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in drop-shadow-lg">
               Our Services
             </h1>
-            <p className="text-xl text-muted-foreground animate-slide-up">
+            <p className="text-xl text-white/90 animate-slide-up drop-shadow-md">
               Comprehensive Logistics Solutions Tailored to Your Needs
             </p>
           </div>
@@ -106,7 +117,7 @@ const Services = () => {
       </section>
 
       {/* Services Introduction */}
-      <section className="py-20">
+      <section className="py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6 animate-fade-in">
@@ -120,7 +131,7 @@ const Services = () => {
       </section>
 
       {/* Service Categories Grid */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gradient mb-6 animate-fade-in">
@@ -189,7 +200,7 @@ const Services = () => {
       </section>
 
       {/* Value Added Services */}
-      <section className="py-20">
+      <section className="py-32">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gradient mb-6 animate-fade-in">
@@ -230,7 +241,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-secondary">
+      <section className="py-32 bg-gradient-to-br from-primary to-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 animate-fade-in">
@@ -241,9 +252,10 @@ const Services = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up-delayed">
               <Link
-                to="/contact-us"
-                className="btn-hero bg-white text-primary hover:bg-white/90 group"
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-lg bg-gradient-to-r from-yellow-300 to-orange-500 text-black hover:shadow-2xl transition-all duration-300 group"
               >
+                <Phone className="mr-2 w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
                 Contact Us Today
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>

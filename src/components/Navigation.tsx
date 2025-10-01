@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, Truck, Shield, Globe, Search, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/JDS-Logo.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +20,7 @@ const Navigation = () => {
   }, []);
 
   const services = [
-    { name: 'Shipping', href: '/services', icon: Globe },
+    { name: 'Shipping', href: '/services/shipping', icon: Globe },
     { name: 'Courier Delivery', href: '/services/courier-delivery', icon: Truck },
     { name: 'B2B Exchange', href: '/services/b2b-exchange', icon: Shield },
     { name: 'Logistics', href: '/services/logistics-solutions', icon: Truck },
@@ -38,11 +39,13 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-2 group"
+            className="flex items-center space-x-3 group"
           >
-            <div className="p-2 bg-primary rounded-lg group-hover:scale-110 transition-transform duration-300">
-              <Package className="w-6 h-6 text-white" />
-            </div>
+            <img 
+              src={logo} 
+              alt="JDsecurity Shipping Company" 
+              className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+            />
             <span className={`text-2xl font-bold transition-colors duration-300 ${
               isScrolled ? 'text-foreground' : 'text-white'
             }`}>
@@ -89,8 +92,8 @@ const Navigation = () => {
                   className="block px-4 py-3 text-sm hover:bg-muted rounded-lg mx-2 transition-colors duration-200"
                   onClick={() => setIsServicesOpen(false)}
                 >
-                  <div className="font-semibold text-foreground">All Services</div>
-                  <div className="text-muted-foreground text-xs">View complete service portfolio</div>
+                  <div className="font-semibold text-slate-900">All Services</div>
+                  <div className="text-slate-600 text-xs">View complete service portfolio</div>
                 </Link>
                 <div className="border-t border-border my-2"></div>
                 {services.map((service) => {
@@ -99,7 +102,7 @@ const Navigation = () => {
                     <Link
                       key={service.name}
                       to={service.href}
-                      className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                      className="flex items-center space-x-3 px-4 py-3 text-slate-900 hover:bg-primary/10 hover:text-primary transition-colors duration-200"
                       onClick={() => setIsServicesOpen(false)}
                     >
                       <Icon className="w-5 h-5" />
@@ -129,9 +132,11 @@ const Navigation = () => {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button className="btn-hero px-14 h-12 font-semibold hover:scale-105 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-              Get Quote
-            </Button>
+            <Link to="/cost-calculator">
+              <Button className="btn-hero px-14 h-12 font-semibold hover:scale-105 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                Get Quote
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -188,7 +193,9 @@ const Navigation = () => {
               
               {/* Mobile Action Buttons */}
               <div className="px-4 py-4 border-t border-border">
-                <Button className="w-full btn-hero">Get Quote</Button>
+                <Link to="/cost-calculator" className="block">
+                  <Button className="w-full btn-hero">Get Quote</Button>
+                </Link>
               </div>
             </nav>
           </div>

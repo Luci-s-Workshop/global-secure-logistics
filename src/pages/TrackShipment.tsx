@@ -83,11 +83,23 @@ const TrackShipment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      <Navigation />
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0 opacity-5"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-12">
+      <div className="relative z-10">
+        <Navigation />
+        
+        {/* Hero Section */}
+        <section className="pt-24 pb-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Track Your Shipment</h1>
@@ -112,7 +124,7 @@ const TrackShipment = () => {
                   </Button>
                 </form>
                 <p className="text-sm text-slate-500 mt-4">
-                  Try: JD123456789, JD987654321, or any number for demo
+                  Kindly enter your tracking number to view details e.g JD123456789
                 </p>
               </CardContent>
             </Card>
@@ -284,7 +296,8 @@ const TrackShipment = () => {
         </div>
       </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

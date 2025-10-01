@@ -6,8 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
+import Shipping from "./pages/Shipping";
 import Contact from "./pages/Contact";
 import CostCalculator from "./pages/CostCalculator";
+import SendQuotation from "./pages/SendQuotation";
 import CourierDelivery from "./pages/CourierDelivery";
 import B2BExchange from "./pages/B2BExchange";
 import LogisticsSolutions from "./pages/LogisticsSolutions";
@@ -26,12 +28,14 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/shipping" element={<Shipping />} />
           <Route path="/services/courier-delivery" element={<CourierDelivery />} />
           <Route path="/services/b2b-exchange" element={<B2BExchange />} />
           <Route path="/services/logistics-solutions" element={<LogisticsSolutions />} />
           <Route path="/track-shipment" element={<TrackShipment />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cost-calculator" element={<CostCalculator />} />
+          <Route path="/send-quotation" element={<SendQuotation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
