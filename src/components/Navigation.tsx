@@ -10,6 +10,10 @@ const Navigation = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
+  // Pages where navigation should be dark from the start
+  const darkNavPages = ['/track-shipment', '/services/shipping', '/services/courier-delivery'];
+  const isDarkNav = darkNavPages.includes(location.pathname);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -29,7 +33,7 @@ const Navigation = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isDarkNav
           ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border'
           : 'bg-transparent'
       }`}
@@ -44,10 +48,10 @@ const Navigation = () => {
             <img 
               src={logo} 
               alt="JDsecurity Shipping Company" 
-              className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+              className="w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300"
             />
             <span className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-white'
+              isScrolled || isDarkNav ? 'text-foreground' : 'text-white'
             }`}>
               JDsecurity
             </span>
@@ -56,12 +60,12 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <Link to="/" className={`nav-link transition-colors duration-300 ${
-              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+              isScrolled || isDarkNav ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
               Home
             </Link>
             <Link to="/about-us" className={`nav-link transition-colors duration-300 ${
-              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+              isScrolled || isDarkNav ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
               About Us
             </Link>
@@ -72,7 +76,7 @@ const Navigation = () => {
             >
               <button 
                 className={`nav-link flex items-center space-x-1 transition-colors duration-300 ${
-                  isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+                  isScrolled || isDarkNav ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
                 }`}
                 onMouseEnter={() => setIsServicesOpen(true)}
               >
@@ -114,17 +118,17 @@ const Navigation = () => {
             </div>
 
             <Link to="/contact" className={`nav-link transition-colors duration-300 ${
-              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+              isScrolled || isDarkNav ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
               Contact
             </Link>
             <Link to="/track-shipment" className={`nav-link transition-colors duration-300 ${
-              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+              isScrolled || isDarkNav ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
               Track Shipment
             </Link>
             <Link to="/cost-calculator" className={`nav-link transition-colors duration-300 ${
-              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+              isScrolled || isDarkNav ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
               Cost Calculator
             </Link>
@@ -142,7 +146,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             className={`lg:hidden p-2 transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-white'
+              isScrolled || isDarkNav ? 'text-foreground' : 'text-white'
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"

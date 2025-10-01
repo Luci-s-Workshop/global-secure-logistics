@@ -14,6 +14,10 @@ import CourierDelivery from "./pages/CourierDelivery";
 import B2BExchange from "./pages/B2BExchange";
 import LogisticsSolutions from "./pages/LogisticsSolutions";
 import TrackShipment from "./pages/TrackShipment";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import ShippingTerms from "./pages/ShippingTerms";
+import InsurancePolicy from "./pages/InsurancePolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +40,10 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/cost-calculator" element={<CostCalculator />} />
           <Route path="/send-quotation" element={<SendQuotation />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/shipping-terms" element={<ShippingTerms />} />
+          <Route path="/insurance-policy" element={<InsurancePolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

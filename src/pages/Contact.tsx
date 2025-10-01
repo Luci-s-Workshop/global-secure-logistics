@@ -50,8 +50,14 @@ const Contact = () => {
       
       {/* Hero Section */}
       <section className="relative bg-slate-900 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900"></div>
-        <div className="absolute inset-0 opacity-20"></div>
+        <div className="absolute inset-0">
+          <img 
+            src="/src/assets/customer-care-office.jpg" 
+            alt="Customer Care Office" 
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/80 to-slate-900/80"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
@@ -97,7 +103,7 @@ const Contact = () => {
                         <h4 className="text-lg font-semibold text-slate-900 mb-1">
                           Call Us 24/7
                         </h4>
-                        <p className="text-slate-600">+1(269)437187</p>
+                        <p className="text-slate-600">(415) 555-0161</p>
                       </div>
                     </div>
                   </div>
@@ -112,7 +118,7 @@ const Contact = () => {
                         <h4 className="text-lg font-semibold text-slate-900 mb-1">
                           Make A Quote
                         </h4>
-                        <p className="text-slate-600">info@skywaysfreight.com</p>
+                        <p className="text-slate-600">info@jdsecurity.net</p>
                       </div>
                     </div>
                   </div>

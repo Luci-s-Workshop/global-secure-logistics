@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Package, Mail, Phone, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { toast } from 'sonner';
@@ -34,10 +35,10 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms of Service', href: '/terms-of-service' },
     { name: 'Shipping Terms', href: '/shipping-terms' },
-    { name: 'Insurance Policy', href: '/insurance' }
+    { name: 'Insurance Policy', href: '/insurance-policy' }
   ];
 
   return (
@@ -91,7 +92,7 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="JDsecurity Shipping Company" 
-                className="w-12 h-12 object-contain"
+                className="w-16 h-16 object-contain"
               />
               <span className="text-2xl font-bold">JDsecurity</span>
             </div>
@@ -156,12 +157,12 @@ const Footer = () => {
             <ul className="space-y-3 mb-8">
               {legalLinks.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-white/80 hover:text-accent transition-colors duration-300 hover:translate-x-1 transform inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
