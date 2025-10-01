@@ -8,6 +8,14 @@ import { Package, Clock, Shield, MapPin, Zap, CheckCircle2, ArrowRight } from "l
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import courierHero1 from "@/assets/courier-hero-1.jpg";
+import courierHero2 from "@/assets/courier-hero-2.jpg";
+import packagePickup from "@/assets/package-pickup.jpg";
+import sortingPackages from "@/assets/sorting-packages.jpg";
+import deliveryVan from "@/assets/delivery-van.jpg";
+import packageScan from "@/assets/package-scan.jpg";
+import driverWithPackage from "@/assets/driver-with-package.jpg";
+import customerReceiving from "@/assets/customer-receiving-package.jpg";
 
 const CourierDelivery = () => {
   const [formData, setFormData] = useState({
@@ -98,15 +106,15 @@ const CourierDelivery = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-4 animate-fade-in">
-              <img src="/placeholder.svg" alt="Courier delivery" className="rounded-2xl shadow-xl w-full h-64 object-cover" />
-              <img src="/placeholder.svg" alt="Package handling" className="rounded-2xl shadow-xl w-full h-64 object-cover mt-8" />
+              <img src={courierHero1} alt="Courier delivery" className="rounded-2xl shadow-xl w-full h-64 object-cover" />
+              <img src={courierHero2} alt="Package handling" className="rounded-2xl shadow-xl w-full h-64 object-cover mt-8" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, idx) => (
@@ -125,28 +133,28 @@ const CourierDelivery = () => {
       </section>
 
       {/* Image Gallery - Masonry Style */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Delivery Process</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="space-y-6">
-              <img src="/placeholder.svg" alt="Package pickup" className="rounded-xl shadow-lg w-full h-64 object-cover" />
-              <img src="/placeholder.svg" alt="Sorting facility" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+              <img src={packagePickup} alt="Package pickup" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src={sortingPackages} alt="Sorting facility" className="rounded-xl shadow-lg w-full h-80 object-cover" />
             </div>
             <div className="space-y-6 md:pt-12">
-              <img src="/placeholder.svg" alt="Delivery van" className="rounded-xl shadow-lg w-full h-80 object-cover" />
-              <img src="/placeholder.svg" alt="Package scanning" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src={deliveryVan} alt="Delivery van" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+              <img src={packageScan} alt="Package scanning" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div className="space-y-6">
-              <img src="/placeholder.svg" alt="Driver delivery" className="rounded-xl shadow-lg w-full h-64 object-cover" />
-              <img src="/placeholder.svg" alt="Customer receiving" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+              <img src={driverWithPackage} alt="Driver delivery" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src={customerReceiving} alt="Customer receiving" className="rounded-xl shadow-lg w-full h-80 object-cover" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Tables - Card Design */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
@@ -187,7 +195,7 @@ const CourierDelivery = () => {
       </section>
 
       {/* Quote Form - Split Layout */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 to-purple-50">
+      <section className="py-24 bg-gradient-to-br from-primary/5 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
@@ -284,7 +292,7 @@ const CourierDelivery = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Explore Related Services</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

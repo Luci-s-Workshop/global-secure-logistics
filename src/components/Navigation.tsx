@@ -32,7 +32,7 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 mb-9 transition-all duration-300 ${
         isScrolled || isDarkNav
           ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border'
           : 'bg-transparent'
@@ -136,7 +136,7 @@ const Navigation = () => {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/cost-calculator">
+            <Link to="/contact">
               <Button className="btn-hero px-14 h-12 font-semibold hover:scale-105 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
                 Get Quote
               </Button>
@@ -197,7 +197,7 @@ const Navigation = () => {
               
               {/* Mobile Action Buttons */}
               <div className="px-4 py-4 border-t border-border">
-                <Link to="/cost-calculator" className="block">
+                <Link to="/contact" className="block">
                   <Button className="w-full btn-hero">Get Quote</Button>
                 </Link>
               </div>

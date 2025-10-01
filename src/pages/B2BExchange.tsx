@@ -9,6 +9,10 @@ import { Building2, TrendingUp, Globe, Users, CheckCircle2, ArrowRight, Truck, P
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import b2bWarehouseMain from "@/assets/b2b-warehouse-main.jpg";
+import b2bBusinessMeeting from "@/assets/b2b-business-meeting.jpg";
+import b2bContainers from "@/assets/b2b-containers.jpg";
+import b2bDashboard from "@/assets/b2b-dashboard.jpg";
 
 const B2BExchange = () => {
   const [formData, setFormData] = useState({
@@ -156,7 +160,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Why Choose Our B2B Platform</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -176,7 +180,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">Industries We Serve</h2>
           <p className="text-center text-slate-600 mb-12 text-lg">Trusted by leading businesses across sectors</p>
@@ -195,28 +199,28 @@ const B2BExchange = () => {
       </section>
 
       {/* Image Gallery - Grid Layout */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our B2B Solutions in Action</h2>
           <div className="grid md:grid-cols-4 gap-4">
             <div className="md:col-span-2 md:row-span-2">
-              <img src="/placeholder.svg" alt="Warehouse operations" className="rounded-xl shadow-lg w-full h-full object-cover" />
+              <img src={b2bWarehouseMain} alt="Warehouse operations" className="rounded-xl shadow-lg w-full h-full object-cover" />
             </div>
             <div className="md:col-span-2">
-              <img src="/placeholder.svg" alt="Business meeting" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src={b2bBusinessMeeting} alt="Business meeting" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div>
-              <img src="/placeholder.svg" alt="Shipping containers" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src={b2bContainers} alt="Shipping containers" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div>
-              <img src="/placeholder.svg" alt="Logistics dashboard" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src={b2bDashboard} alt="Logistics dashboard" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Flexible Pricing for Every Scale</h2>
@@ -257,7 +261,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Contact Form - Side by Side */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -381,7 +385,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Complementary Services</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
