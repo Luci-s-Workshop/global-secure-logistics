@@ -238,7 +238,6 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    padding-top: 64px; /* Space for fixed navigation */
   }
   
   html {

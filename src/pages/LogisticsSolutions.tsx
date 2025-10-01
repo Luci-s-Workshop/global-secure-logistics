@@ -9,11 +9,6 @@ import { Network, Warehouse, BarChart3, Globe2, CheckCircle2, ArrowRight, Packag
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
-import mainWarehouse from "@/assets/main-warehouse.jpg";
-import sortingFacility from "@/assets/sorting-facility.jpg";
-import distributionCenter from "@/assets/distribution-center.jpg";
-import controlRoom from "@/assets/control-room.jpg";
-import deliveryVanFleet from "@/assets/delivery-van-fleet.jpg";
 
 const LogisticsSolutions = () => {
   const [formData, setFormData] = useState({
@@ -118,7 +113,7 @@ const LogisticsSolutions = () => {
       <Navigation />
       
       {/* Hero Section - Wave Design */}
-      <section className="relative pt-40 pb-44 overflow-hidden">
+      <section className="relative pt-24 pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-600 to-primary" />
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" className="w-full text-white fill-current">
@@ -155,7 +150,7 @@ const LogisticsSolutions = () => {
       </section>
 
       {/* Solutions Tabs */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">Our Logistics Solutions</h2>
           <p className="text-center text-slate-600 mb-12 text-lg max-w-2xl mx-auto">
@@ -203,7 +198,7 @@ const LogisticsSolutions = () => {
                         </Button>
                       </div>
                       <div>
-                        <img src={mainWarehouse} alt={solution.title} className="rounded-xl shadow-xl w-full h-96 object-cover" />
+                        <img src="/placeholder.svg" alt={solution.title} className="rounded-xl shadow-xl w-full h-96 object-cover" />
                       </div>
                     </div>
                   </CardContent>
@@ -215,7 +210,7 @@ const LogisticsSolutions = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">Success Stories</h2>
           <p className="text-center text-slate-600 mb-12 text-lg">Real results from real clients</p>
@@ -239,31 +234,31 @@ const LogisticsSolutions = () => {
       </section>
 
       {/* Image Gallery - Bento Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Operations</h2>
           <div className="grid md:grid-cols-6 gap-4 max-w-6xl mx-auto">
             <div className="md:col-span-4 md:row-span-2">
-              <img src={mainWarehouse} alt="Main warehouse" className="rounded-xl shadow-lg w-full h-full object-cover" />
+              <img src="/placeholder.svg" alt="Main warehouse" className="rounded-xl shadow-lg w-full h-full object-cover" />
             </div>
             <div className="md:col-span-2">
-              <img src={sortingFacility} alt="Sorting facility" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+              <img src="/placeholder.svg" alt="Sorting facility" className="rounded-xl shadow-lg w-full h-48 object-cover" />
             </div>
             <div className="md:col-span-2">
-              <img src={distributionCenter} alt="Distribution center" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+              <img src="/placeholder.svg" alt="Distribution center" className="rounded-xl shadow-lg w-full h-48 object-cover" />
             </div>
             <div className="md:col-span-3">
-              <img src={controlRoom} alt="Control room" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Control room" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div className="md:col-span-3">
-              <img src={deliveryVanFleet} alt="Fleet" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Fleet" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Packages */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Flexible Packages</h2>
@@ -303,7 +298,7 @@ const LogisticsSolutions = () => {
       </section>
 
       {/* Contact Form - Floating Card Design */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 via-purple-50 to-white">
+      <section className="py-16 bg-gradient-to-br from-primary/5 via-purple-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Card className="shadow-2xl">
@@ -375,7 +370,7 @@ const LogisticsSolutions = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Additional Services</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

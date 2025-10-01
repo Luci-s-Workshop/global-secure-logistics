@@ -8,14 +8,6 @@ import { Package, Clock, Shield, MapPin, Zap, CheckCircle2, ArrowRight } from "l
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
-import courierDeliveryHero from "@/assets/courier-delivery-hero.jpg";
-import packageHandling from "@/assets/package-handling.jpg";
-import courierPickup from "@/assets/courier-pickup.jpg";
-import sortingFacility from "@/assets/sorting-facility.jpg";
-import deliveryVanFleet from "@/assets/delivery-van-fleet.jpg";
-import packageScanning from "@/assets/package-scanning.jpg";
-import driverDelivery from "@/assets/driver-delivery.jpg";
-import customerReceiving from "@/assets/customer-receiving.jpg";
 
 const CourierDelivery = () => {
   const [formData, setFormData] = useState({
@@ -73,7 +65,7 @@ const CourierDelivery = () => {
       <Navigation />
       
       {/* Hero Section - Diagonal Split Design */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-50 to-white" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 transform skew-x-12 origin-top-right" />
         
@@ -106,15 +98,15 @@ const CourierDelivery = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-4 animate-fade-in">
-              <img src={courierDeliveryHero} alt="Courier delivery" className="rounded-2xl shadow-xl w-full h-64 object-cover" />
-              <img src={packageHandling} alt="Package handling" className="rounded-2xl shadow-xl w-full h-64 object-cover mt-8" />
+              <img src="/placeholder.svg" alt="Courier delivery" className="rounded-2xl shadow-xl w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Package handling" className="rounded-2xl shadow-xl w-full h-64 object-cover mt-8" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, idx) => (
@@ -133,28 +125,28 @@ const CourierDelivery = () => {
       </section>
 
       {/* Image Gallery - Masonry Style */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Delivery Process</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="space-y-6">
-              <img src={courierPickup} alt="Package pickup" className="rounded-xl shadow-lg w-full h-64 object-cover" />
-              <img src={sortingFacility} alt="Sorting facility" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+              <img src="/placeholder.svg" alt="Package pickup" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Sorting facility" className="rounded-xl shadow-lg w-full h-80 object-cover" />
             </div>
             <div className="space-y-6 md:pt-12">
-              <img src={deliveryVanFleet} alt="Delivery van" className="rounded-xl shadow-lg w-full h-80 object-cover" />
-              <img src={packageScanning} alt="Package scanning" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Delivery van" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+              <img src="/placeholder.svg" alt="Package scanning" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div className="space-y-6">
-              <img src={driverDelivery} alt="Driver delivery" className="rounded-xl shadow-lg w-full h-64 object-cover" />
-              <img src={customerReceiving} alt="Customer receiving" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+              <img src="/placeholder.svg" alt="Driver delivery" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Customer receiving" className="rounded-xl shadow-lg w-full h-80 object-cover" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Tables - Card Design */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
@@ -195,7 +187,7 @@ const CourierDelivery = () => {
       </section>
 
       {/* Quote Form - Split Layout */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 to-purple-50">
+      <section className="py-16 bg-gradient-to-br from-primary/5 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
@@ -292,7 +284,7 @@ const CourierDelivery = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Explore Related Services</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

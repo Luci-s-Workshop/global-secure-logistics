@@ -9,10 +9,6 @@ import { Building2, TrendingUp, Globe, Users, CheckCircle2, ArrowRight, Truck, P
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
-import b2bWarehouse from "@/assets/b2b-warehouse.jpg";
-import b2bMeeting from "@/assets/b2b-meeting.jpg";
-import shippingContainers from "@/assets/shipping-containers.jpg";
-import logisticsDashboard from "@/assets/logistics-dashboard.jpg";
 
 const B2BExchange = () => {
   const [formData, setFormData] = useState({
@@ -99,7 +95,7 @@ const B2BExchange = () => {
       <Navigation />
       
       {/* Hero Section - Geometric Design */}
-      <section className="relative pt-40 pb-32 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="relative pt-24 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full filter blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl" />
@@ -136,7 +132,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in">
@@ -160,7 +156,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Why Choose Our B2B Platform</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -180,7 +176,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">Industries We Serve</h2>
           <p className="text-center text-slate-600 mb-12 text-lg">Trusted by leading businesses across sectors</p>
@@ -199,28 +195,28 @@ const B2BExchange = () => {
       </section>
 
       {/* Image Gallery - Grid Layout */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our B2B Solutions in Action</h2>
           <div className="grid md:grid-cols-4 gap-4">
             <div className="md:col-span-2 md:row-span-2">
-              <img src={b2bWarehouse} alt="Warehouse operations" className="rounded-xl shadow-lg w-full h-full object-cover" />
+              <img src="/placeholder.svg" alt="Warehouse operations" className="rounded-xl shadow-lg w-full h-full object-cover" />
             </div>
             <div className="md:col-span-2">
-              <img src={b2bMeeting} alt="Business meeting" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Business meeting" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div>
-              <img src={shippingContainers} alt="Shipping containers" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Shipping containers" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
             <div>
-              <img src={logisticsDashboard} alt="Logistics dashboard" className="rounded-xl shadow-lg w-full h-64 object-cover" />
+              <img src="/placeholder.svg" alt="Logistics dashboard" className="rounded-xl shadow-lg w-full h-64 object-cover" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Flexible Pricing for Every Scale</h2>
@@ -261,7 +257,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Contact Form - Side by Side */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -385,7 +381,7 @@ const B2BExchange = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Complementary Services</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
