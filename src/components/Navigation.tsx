@@ -32,7 +32,7 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 mb-9 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 mb-14 transition-all duration-300 ${
         isScrolled || isDarkNav
           ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border'
           : 'bg-transparent'
