@@ -19,10 +19,10 @@ const Navigation = () => {
   }, []);
 
   const services = [
-    { name: 'Shipping', href: '/services/shipping', icon: Globe },
+    { name: 'Shipping', href: '/services', icon: Globe },
     { name: 'Courier Delivery', href: '/services/courier-delivery', icon: Truck },
     { name: 'B2B Exchange', href: '/services/b2b-exchange', icon: Shield },
-    { name: 'Logistics', href: '/services/logistics', icon: Truck },
+    { name: 'Logistics', href: '/services/logistics-solutions', icon: Truck },
   ];
 
   return (
@@ -115,6 +115,11 @@ const Navigation = () => {
             }`}>
               Contact
             </Link>
+            <Link to="/track-shipment" className={`nav-link transition-colors duration-300 ${
+              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+            }`}>
+              Track Shipment
+            </Link>
             <Link to="/cost-calculator" className={`nav-link transition-colors duration-300 ${
               isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
             }`}>
@@ -173,6 +178,9 @@ const Navigation = () => {
               
               <Link to="/contact" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact
+              </Link>
+              <Link to="/track-shipment" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                Track Shipment
               </Link>
               <Link to="/cost-calculator" className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                 Cost Calculator

@@ -1,33 +1,35 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Package, Mail, Phone, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Footer = () => {
   const [email, setEmail] = React.useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement newsletter subscription
-    console.log('Newsletter subscription:', email);
-    setEmail('');
+    if (email) {
+      toast.success("Thank you for subscribing! You'll receive our latest updates.");
+      setEmail('');
+    }
   };
 
   const quickLinks = [
     { name: 'About Us', href: '/about-us' },
     { name: 'Services', href: '/services' },
-    { name: 'Track Shipment', href: '/track' },
+    { name: 'Track Shipment', href: '/track-shipment' },
     { name: 'Cost Calculator', href: '/cost-calculator' },
-    { name: 'Contact Us', href: '/contact-us' },
+    { name: 'Contact Us', href: '/contact' },
     { name: 'Careers', href: '/careers' }
   ];
 
   const services = [
-    { name: 'Air Freight', href: '/services/shipping' },
-    { name: 'Ocean Freight', href: '/services/shipping' },
-    { name: 'Road Transport', href: '/services/shipping' },
+    { name: 'Air Freight', href: '/services' },
+    { name: 'Ocean Freight', href: '/services' },
+    { name: 'Road Transport', href: '/services' },
     { name: 'Courier Delivery', href: '/services/courier-delivery' },
     { name: 'B2B Exchange', href: '/services/b2b-exchange' },
-    { name: 'Logistics Solutions', href: '/services/logistics' }
+    { name: 'Logistics Solutions', href: '/services/logistics-solutions' }
   ];
 
   const legalLinks = [

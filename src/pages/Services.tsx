@@ -50,7 +50,7 @@ const Services = () => {
     },
     {
       title: 'Logistics Solutions',
-      href: '/services/logistics',
+      href: '/services/logistics-solutions',
       description: 'End-to-end logistics management including warehousing, distribution, customs clearance, and value-added services.',
       icon: Truck,
       highlights: [
