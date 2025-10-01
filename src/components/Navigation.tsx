@@ -65,42 +65,49 @@ const Navigation = () => {
             
             {/* Services Dropdown */}
             <div
-              className="relative"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+              className="relative group"
             >
-              <button className={`nav-link flex items-center space-x-1 transition-colors duration-300 ${
-                isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
-              }`}>
+              <button 
+                className={`nav-link flex items-center space-x-1 transition-colors duration-300 ${
+                  isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-accent'
+                }`}
+                onMouseEnter={() => setIsServicesOpen(true)}
+              >
                 <span>Services</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               
-              {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-md rounded-lg shadow-xl border border-border py-2 animate-fade-in">
-                  <Link
-                    to="/services"
-                    className="block px-4 py-3 text-sm hover:bg-muted rounded-lg mx-2 transition-colors duration-200"
-                  >
-                    <div className="font-semibold">All Services</div>
-                    <div className="text-muted-foreground text-xs">View complete service portfolio</div>
-                  </Link>
-                  <div className="border-t border-border my-2"></div>
-                  {services.map((service) => {
-                    const Icon = service.icon;
-                    return (
-                      <Link
-                        key={service.name}
-                        to={service.href}
-                        className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
-                      >
-                        <Icon className="w-5 h-5" />
-                        <span>{service.name}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
+              <div 
+                className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-border py-2 transition-all duration-300 z-50 ${
+                  isServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <Link
+                  to="/services"
+                  className="block px-4 py-3 text-sm hover:bg-muted rounded-lg mx-2 transition-colors duration-200"
+                  onClick={() => setIsServicesOpen(false)}
+                >
+                  <div className="font-semibold text-foreground">All Services</div>
+                  <div className="text-muted-foreground text-xs">View complete service portfolio</div>
+                </Link>
+                <div className="border-t border-border my-2"></div>
+                {services.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <Link
+                      key={service.name}
+                      to={service.href}
+                      className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                      onClick={() => setIsServicesOpen(false)}
+                    >
+                      <Icon className="w-5 h-5" />
+                      <span>{service.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
             <Link to="/contact" className={`nav-link transition-colors duration-300 ${
@@ -117,7 +124,7 @@ const Navigation = () => {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button className="btn-hero px-6 py-2 font-semibold">
+            <Button className="btn-hero px-14 h-12 font-semibold hover:scale-105 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
               Get Quote
             </Button>
           </div>

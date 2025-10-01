@@ -64,13 +64,13 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent backdrop-blur-sm"
+                  className="w-full h-14 px-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent backdrop-blur-sm"
                   required
                 />
               </div>
               <Button 
                 type="submit" 
-                className="btn-hero px-8 py-3 font-semibold whitespace-nowrap hover:scale-105 transition-transform duration-300"
+                className="btn-hero h-14 px-8 font-semibold whitespace-nowrap hover:scale-105 transition-transform duration-300"
               >
                 Subscribe Now
               </Button>

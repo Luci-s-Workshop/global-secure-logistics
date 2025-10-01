@@ -19,13 +19,17 @@ const CostCalculator = () => {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    
+    // Auto-calculate when all required fields are filled
+    const updatedData = { ...formData, [field]: value };
+    if (updatedData.origin && updatedData.destination && updatedData.weight && updatedData.shipmentType && updatedData.securityLevel) {
+      setTimeout(() => calculateCostAuto(updatedData), 500);
+    }
   };
 
-  const calculateCost = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const calculateCostAuto = (data: typeof formData) => {
     setIsCalculating(true);
 
-    // Simulate API call
     setTimeout(() => {
       const baseRate = {
         'Air Freight - Express': 25,
@@ -35,30 +39,60 @@ const CostCalculator = () => {
         'Road Transport - FTL': 3,
         'Road Transport - LTL': 5,
         'Courier Services': 12,
-      }[formData.shipmentType] || 10;
+      }[data.shipmentType] || 10;
 
       const securityMultiplier = {
         'Standard Security': 1,
         'Enhanced Security': 1.3,
         'Maximum Security (Armed)': 1.8,
-      }[formData.securityLevel] || 1;
+      }[data.securityLevel] || 1;
 
-      const weight = parseFloat(formData.weight) || 1;
-      const estimatedCost = baseRate * weight * securityMultiplier;
+      // Destination-based pricing (per kg rates)
+      const destinations: { [key: string]: number } = {
+        'usa': 8.50, 'united states': 8.50,
+        'canada': 8.50,
+        'mexico': 8.50,
+        'europe': 12.75, 'uk': 12.50, 'united kingdom': 12.50,
+        'asia': 10.60, 'china': 10.00, 'japan': 11.50,
+        'africa': 13.25,
+        'australia': 14.80, 'new zealand': 14.50,
+        'south america': 11.70, 'brazil': 12.00,
+      };
+
+      const destLower = data.destination.toLowerCase();
+      let destinationRate = 10;
+      
+      for (const [key, rate] of Object.entries(destinations)) {
+        if (destLower.includes(key)) {
+          destinationRate = rate;
+          break;
+        }
+      }
+
+      const weight = parseFloat(data.weight) || 1;
+      const weightCost = weight * destinationRate;
+      const estimatedCost = (baseRate + weightCost) * securityMultiplier;
 
       setResult({
         estimatedCost: estimatedCost.toFixed(2),
-        transitTime: formData.shipmentType?.includes('Express') ? '1-3 days' : 
-                    formData.shipmentType?.includes('Air') ? '3-5 days' :
-                    formData.shipmentType?.includes('Sea') ? '15-30 days' : '2-7 days',
-        securityLevel: formData.securityLevel,
+        transitTime: data.shipmentType?.includes('Express') ? '1-3 days' : 
+                    data.shipmentType?.includes('Air') ? '3-5 days' :
+                    data.shipmentType?.includes('Sea') ? '15-30 days' : '2-7 days',
+        securityLevel: data.securityLevel,
         breakdown: {
-          baseRate: (baseRate * weight).toFixed(2),
-          securityFee: ((baseRate * weight * securityMultiplier) - (baseRate * weight)).toFixed(2),
+          baseRate: (baseRate + weightCost).toFixed(2),
+          securityFee: ((estimatedCost) - (baseRate + weightCost)).toFixed(2),
         }
       });
       setIsCalculating(false);
-    }, 2000);
+    }, 500);
+  };
+
+  const calculateCost = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData.origin && formData.destination && formData.weight && formData.shipmentType && formData.securityLevel) {
+      calculateCostAuto(formData);
+    }
   };
 
   return (
@@ -121,12 +155,12 @@ const CostCalculator = () => {
               </div>
 
               <div>
-                <Label className="text-sm font-medium mb-2 block">Shipment Type</Label>
+                <Label className="text-sm font-medium mb-2 block text-slate-300">Shipment Type</Label>
                 <Select onValueChange={(value) => handleInputChange('shipmentType', value)}>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                     <SelectValue placeholder="Select shipping method" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 z-50">
                     <SelectItem value="Air Freight - Express">Air Freight - Express</SelectItem>
                     <SelectItem value="Air Freight - Standard">Air Freight - Standard</SelectItem>
                     <SelectItem value="Sea Freight - FCL">Sea Freight - FCL</SelectItem>
@@ -140,16 +174,16 @@ const CostCalculator = () => {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="weight" className="text-sm font-medium mb-2 block">
+                  <Label htmlFor="weight" className="text-sm font-medium mb-2 block text-slate-300">
                     Weight (kg)
                   </Label>
                   <div className="relative">
-                    <Package className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                    <Package className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
                     <Input
                       id="weight"
                       type="number"
                       placeholder="Enter weight"
-                      className="pl-10"
+                      className="pl-10 bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
                       value={formData.weight}
                       onChange={(e) => handleInputChange('weight', e.target.value)}
                       required
@@ -158,12 +192,13 @@ const CostCalculator = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="dimensions" className="text-sm font-medium mb-2 block">
+                  <Label htmlFor="dimensions" className="text-sm font-medium mb-2 block text-slate-300">
                     Dimensions (cm)
                   </Label>
                   <Input
                     id="dimensions"
                     placeholder="L x W x H"
+                    className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
                     value={formData.dimensions}
                     onChange={(e) => handleInputChange('dimensions', e.target.value)}
                   />
@@ -171,12 +206,12 @@ const CostCalculator = () => {
               </div>
 
               <div>
-                <Label className="text-sm font-medium mb-2 block">Security Level</Label>
+                <Label className="text-sm font-medium mb-2 block text-slate-300">Security Level</Label>
                 <Select onValueChange={(value) => handleInputChange('securityLevel', value)}>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                     <SelectValue placeholder="Select security level" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 z-50">
                     <SelectItem value="Standard Security">Standard Security</SelectItem>
                     <SelectItem value="Enhanced Security">Enhanced Security</SelectItem>
                     <SelectItem value="Maximum Security (Armed)">Maximum Security (Armed)</SelectItem>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plane, Ship, Truck, Globe } from 'lucide-react';
-import airFreightImage from '@/assets/air-freight-service.jpg';
-import customsImage from '@/assets/customs-clearance.jpg';
-import warehouseImage from '@/assets/warehouse-logistics.jpg';
-import roadFreightImage from '@/assets/road-freight.jpg';
+import airFreightImage from '@/assets/airfreight-plane-yard.jpg';
+import customsImage from '@/assets/customs-clearance-port.jpg';
+import warehouseImage from '@/assets/fast-cargo-ship.jpg';
+import roadFreightImage from '@/assets/delivery-van-highway.jpg';
 
 const ServicesGrid = () => {
   const services = [

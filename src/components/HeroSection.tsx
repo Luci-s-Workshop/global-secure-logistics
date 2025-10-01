@@ -128,7 +128,10 @@ const HeroSection = () => {
                             </span>
                           </div>
                           
-                          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-hero-slide-up">
+                          <h1 
+                            key={`h1-${slide.id}`}
+                            className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-hero-slide-left"
+                          >
                             {slide.title.split(' ').map((word, index) => (
                               <span key={index} className={index >= 2 ? "text-gradient bg-gradient-to-r from-accent to-secondary-light bg-clip-text text-transparent" : ""}>
                                 {word}{' '}

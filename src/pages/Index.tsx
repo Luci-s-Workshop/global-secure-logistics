@@ -4,6 +4,9 @@ import HeroSection from '@/components/HeroSection';
 import ServicesGrid from '@/components/ServicesGrid';
 import TrackingSystem from '@/components/TrackingSystem';
 import CostCalculator from '@/components/CostCalculator';
+import LogisticsSection from '@/components/LogisticsSection';
+import VehicleFleet from '@/components/VehicleFleet';
+import DeliveryProcess from '@/components/DeliveryProcess';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -14,6 +17,9 @@ const Index = () => {
       <ServicesGrid />
       <TrackingSystem />
       <CostCalculator />
+      <LogisticsSection />
+      <VehicleFleet />
+      <DeliveryProcess />
       <Footer />
     </div>
   );

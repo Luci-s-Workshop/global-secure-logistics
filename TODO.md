@@ -8,8 +8,8 @@
 - [ ] Test responsive design across all devices
 
 ### 🔥 Urgent
-- [ ] Add Contact Us page
-- [ ] Create dedicated Cost Calculator page
+- [x] Add Contact Us page
+- [x] Create dedicated Cost Calculator page
 - [ ] Implement individual service pages (Courier Delivery, B2B Exchange, Logistics)
 - [ ] Add real tracking functionality to "Track Your Order" button
 
@@ -50,8 +50,8 @@
 ## Content Creation
 
 ### 📝 Pages to Create
-- [ ] Contact Us page with multiple contact methods
-- [ ] Cost Calculator page with advanced form
+- [x] Contact Us page with multiple contact methods
+- [x] Cost Calculator page with advanced form
 - [ ] Shipping Services detailed page
 - [ ] Courier Delivery detailed page  
 - [ ] B2B Exchange detailed page
