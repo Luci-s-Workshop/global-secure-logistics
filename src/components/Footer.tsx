@@ -88,13 +88,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-2.5 mb-6">
               <img 
                 src={logo} 
-                alt="JDsecurity Shipping Company" 
+                alt="JDSECURITY Shipping Company" 
                 className="w-16 h-16 object-contain"
               />
-              <span className="text-2xl font-bold">JDsecurity</span>
+              <span className="text-2xl font-bold">JDSECURITY</span>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               Your trusted partner in secure global logistics solutions. Delivering excellence across air, sea, and land transportation since 1984.
@@ -210,7 +210,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm">
-              © 2024 JDsecurity Shipping Company. All rights reserved.
+              © 2024 JDSECURITY Shipping Company. All rights reserved.
             </div>
             <div className="flex items-center space-x-4 text-white/60 text-sm">
               <span className="flex items-center space-x-2">

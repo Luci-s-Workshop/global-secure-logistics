@@ -32,7 +32,7 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 mb-14 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 mb-12 transition-all duration-300 ${
         isScrolled || isDarkNav
           ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border'
           : 'bg-transparent'
@@ -43,17 +43,17 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-3 group"
+            className="flex items-center space-x-2.5 group"
           >
             <img 
               src={logo} 
-              alt="JDsecurity Shipping Company" 
+              alt="JDSECURITY Shipping Company" 
               className="w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300"
             />
             <span className={`text-2xl font-bold transition-colors duration-300 ${
               isScrolled || isDarkNav ? 'text-foreground' : 'text-white'
             }`}>
-              JDsecurity
+              JDSECURITY
             </span>
           </Link>
 
