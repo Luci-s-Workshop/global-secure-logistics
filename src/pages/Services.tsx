@@ -253,7 +253,7 @@ const Services = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up-delayed">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-lg bg-gradient-to-r from-yellow-400 to-orange-500 text-black hover:from-yellow-500 hover:to-orange-600 hover:shadow-2xl transition-all duration-300 group"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-lg bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-2xl transition-all duration-300 group"
               >
                 <Phone className="mr-2 w-5 h-5 group-hover:animate-bounce" />
                 Contact Us Today
